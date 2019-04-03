@@ -1,0 +1,235 @@
+
+Note-[RT_BS] Larger stack needed
+  Note: Bumping stack limit from 8192 to 8193 Kbytes.
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 00:24 2018
+ucli% # -----------------------------------------------------------------------------
+ucli% # The confidential and proprietary information contained in this file may
+ucli% # only be used by a person authorised under and to the extent permitted
+ucli% # by a subsisting licensing agreement from ARM Limited.
+ucli% #
+ucli% #            (C) COPYRIGHT 2010-2015 ARM Limited.
+ucli% #                ALL RIGHTS RESERVED
+ucli% #
+ucli% # This entire notice must be reproduced on all copies of this file
+ucli% # and copies of this file may only be made by a person if such person is
+ucli% # permitted to do so under the terms of a subsisting license agreement
+ucli% # from ARM Limited.
+ucli% #
+ucli% #      SVN Information
+ucli% #
+ucli% #      Checked In          : $Date: 2017-08-11 14:44:16 +0100 (Fri, 11 Aug 2017) $
+ucli% #
+ucli% #      Revision            : $Revision: 369125 $
+ucli% #
+ucli% #      Release Information : 
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # Setup script for VCS
+ucli% # This script has 3 main functions.
+ucli% # 1.  Force address bus to 0, run for 1us, release address bus.  This removes warnings
+ucli% #     from the memories regarding X indexing their arrays.
+ucli% # 2.  Preload the SSRAM1 bank with the code from the generated hex files
+ucli% # 3.  Force the zbt_boot_ctrl to be active so that the code is run from the 
+ucli% #     preloaded SSRAM1 bank above
+ucli% #
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # At the start of simulation, due to the memory bus being X, most memories
+ucli% # issue a warning.  To clean this up, force the bus to 0, run the sim for 1us
+ucli% # so that the reset has seen a clock cycle, then remove the force and allow
+ucli% # the simulation to run normally.
+ucli% # Path list of all the memory indicies that are unknown at the start of simulation
+ucli% set addr_list [list \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr \
+  tb_fpga/uSSRAM1A/raddr \
+  tb_fpga/uSSRAM1B/raddr \
+  tb_fpga/uSSRAM2/raddr \
+  tb_fpga/uSSRAM3/raddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg \
+]
+tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr tb_fpga/uSSRAM1A/raddr tb_fpga/uSSRAM1B/raddr tb_fpga/uSSRAM2/raddr tb_fpga/uSSRAM3/raddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg
+ucli% # Tie them all inactive, run the simulation for a few clock cycles
+ucli% # then release
+ucli% foreach addr $addr_list { force $addr 0 }
+ucli% run 1us
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm3' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 181
+  Cannot open file 'itcm3' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm2' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 182
+  Cannot open file 'itcm2' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm1' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 183
+  Cannot open file 'itcm1' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm0' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 184
+  Cannot open file 'itcm0' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+1000000 ps
+ucli% foreach addr $addr_list { release $addr }
+ucli% # Preload ZBT memories, (SSRAM1)
+ucli% # In the MPS2 board, this is done by the microcontroller before it releases
+ucli% # the CPU reset.
+ucli% # If this was modelled in simulation, then simulation times would increase
+ucli% # significantly.  So in order to save simulation time, the memories are preloaded.
+ucli% memory -read tb_fpga/uSSRAM1A/bank0 -file itcm0.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank1 -file itcm1.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank2 -file itcm2.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank3 -file itcm3.hex -radix hex 
+ucli%                                      
+ucli% memory -read tb_fpga/uSSRAM1B/bank0 -file itcm4.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank1 -file itcm5.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank2 -file itcm6.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank3 -file itcm7.hex -radix hex 
+ucli% # Preload ZBT memories, (SSRAM2 and 3) to avoid X in read data
+ucli% memory -read tb_fpga/uSSRAM2/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank3 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank3 -fill 0
+ucli% # Force zbt_boot_ctrl to be active, this makes code execute from the SSRAM
+ucli% # as it does on the MPS2 board
+ucli% force tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/zbt_boot_ctrl 1
+ucli% # ------------
+ucli% # End of setup
+ucli% # ------------
+ucli% # Other commands below here
+ucli% run
+    1242520 ns UART: 
+    1342640 ns UART: Dhrystone Benchmark, Version 2.1 (Language: C)
+    1359200 ns UART: 
+    1457520 ns UART: Program compiled without 'register' attribute
+    1474080 ns UART: 
+    1608080 ns UART: Please give the number of runs through the benchmark: 
+    1848720 ns UART: Execution starts, 200 runs through Dhrystone
+    7141360 ns UART: Execution ends
+    7157920 ns UART: 
+    7265040 ns UART: Final values of the variables used in the benchmark:
+    7281600 ns UART: 
+    7383360 ns UART: Int_Glob:            5
+    7488400 ns UART:         should be:   5
+    7593440 ns UART: Bool_Glob:           1
+    7698400 ns UART:         should be:   1
+    7799880 ns UART: Ch_1_Glob:           A
+    7901360 ns UART:         should be:   A
+    8002840 ns UART: Ch_2_Glob:           B
+    8104240 ns UART:         should be:   B
+    8209480 ns UART: Arr_1_Glob[8]:       7
+    8314440 ns UART:         should be:   7
+    8514400 ns UART: Arr_2_Glob[8][7]:    210
+    8607360 ns UART:         should be:   Number_Of_Runs + 10
+    8656920 ns UART: Ptr_Glob->
+    9209200 ns UART:   Ptr_Comp:          536883536
+    9314840 ns UART:         should be:   (implementation-dependent)
+    9417760 ns UART:   Discr:             0
+    9522520 ns UART:         should be:   0
+    9627640 ns UART:   Enum_Comp:         2
+    9732600 ns UART:         should be:   2
+    9889880 ns UART:   Int_Comp:          17
+   10047000 ns UART:         should be:   17
+   10204040 ns UART:   Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+   10314960 ns UART:         should be:   DHRYSTONE PROGRAM, SOME STRING
+   10373840 ns UART: Next_Ptr_Glob->
+   10926040 ns UART:   Ptr_Comp:          536883536
+   11052880 ns UART:         should be:   (implementation-dependent), same as above
+   11155680 ns UART:   Discr:             0
+   11260440 ns UART:         should be:   0
+   11365560 ns UART:   Enum_Comp:         1
+   11470520 ns UART:         should be:   1
+   11627800 ns UART:   Int_Comp:          18
+   11784920 ns UART:         should be:   18
+   11941960 ns UART:   Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+   12052880 ns UART:         should be:   DHRYSTONE PROGRAM, SOME STRING
+   12155840 ns UART: Int_1_Loc:           5
+   12260800 ns UART:         should be:   5
+   12412800 ns UART: Int_2_Loc:           13
+   12564640 ns UART:         should be:   13
+   12669680 ns UART: Int_3_Loc:           7
+   12774640 ns UART:         should be:   7
+   12879680 ns UART: Enum_Loc:            1
+   12984640 ns UART:         should be:   1
+   13141480 ns UART: Str_1_Loc:           DHRYSTONE PROGRAM, 1'ST STRING
+   13252400 ns UART:         should be:   DHRYSTONE PROGRAM, 1'ST STRING
+   13407160 ns UART: Str_2_Loc:           DHRYSTONE PROGRAM, 2'ND STRING
+   13518080 ns UART:         should be:   DHRYSTONE PROGRAM, 2'ND STRING
+   13534640 ns UART: 
+   14028520 ns UART: Number of cycles for 200 iteration is 130823
+   14090320 ns UART: ** TEST PASSED ** 
+   14096240 ns UART: Test Ended
+ucli% quit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 14096240000 ps
+CPU Time:    110.570 seconds;       Data structure size:  39.7Mb
+Sat Oct 27 00:25:58 2018

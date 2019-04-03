@@ -1,0 +1,248 @@
+
+Note-[RT_BS] Larger stack needed
+  Note: Bumping stack limit from 8192 to 8193 Kbytes.
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 00:21 2018
+ucli% # -----------------------------------------------------------------------------
+ucli% # The confidential and proprietary information contained in this file may
+ucli% # only be used by a person authorised under and to the extent permitted
+ucli% # by a subsisting licensing agreement from ARM Limited.
+ucli% #
+ucli% #            (C) COPYRIGHT 2010-2015 ARM Limited.
+ucli% #                ALL RIGHTS RESERVED
+ucli% #
+ucli% # This entire notice must be reproduced on all copies of this file
+ucli% # and copies of this file may only be made by a person if such person is
+ucli% # permitted to do so under the terms of a subsisting license agreement
+ucli% # from ARM Limited.
+ucli% #
+ucli% #      SVN Information
+ucli% #
+ucli% #      Checked In          : $Date: 2017-08-11 14:44:16 +0100 (Fri, 11 Aug 2017) $
+ucli% #
+ucli% #      Revision            : $Revision: 369125 $
+ucli% #
+ucli% #      Release Information : 
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # Setup script for VCS
+ucli% # This script has 3 main functions.
+ucli% # 1.  Force address bus to 0, run for 1us, release address bus.  This removes warnings
+ucli% #     from the memories regarding X indexing their arrays.
+ucli% # 2.  Preload the SSRAM1 bank with the code from the generated hex files
+ucli% # 3.  Force the zbt_boot_ctrl to be active so that the code is run from the 
+ucli% #     preloaded SSRAM1 bank above
+ucli% #
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # At the start of simulation, due to the memory bus being X, most memories
+ucli% # issue a warning.  To clean this up, force the bus to 0, run the sim for 1us
+ucli% # so that the reset has seen a clock cycle, then remove the force and allow
+ucli% # the simulation to run normally.
+ucli% # Path list of all the memory indicies that are unknown at the start of simulation
+ucli% set addr_list [list \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr \
+  tb_fpga/uSSRAM1A/raddr \
+  tb_fpga/uSSRAM1B/raddr \
+  tb_fpga/uSSRAM2/raddr \
+  tb_fpga/uSSRAM3/raddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg \
+]
+tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr tb_fpga/uSSRAM1A/raddr tb_fpga/uSSRAM1B/raddr tb_fpga/uSSRAM2/raddr tb_fpga/uSSRAM3/raddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg
+ucli% # Tie them all inactive, run the simulation for a few clock cycles
+ucli% # then release
+ucli% foreach addr $addr_list { force $addr 0 }
+ucli% run 1us
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm3' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 181
+  Cannot open file 'itcm3' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm2' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 182
+  Cannot open file 'itcm2' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm1' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 183
+  Cannot open file 'itcm1' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm0' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 184
+  Cannot open file 'itcm0' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+1000000 ps
+ucli% foreach addr $addr_list { release $addr }
+ucli% # Preload ZBT memories, (SSRAM1)
+ucli% # In the MPS2 board, this is done by the microcontroller before it releases
+ucli% # the CPU reset.
+ucli% # If this was modelled in simulation, then simulation times would increase
+ucli% # significantly.  So in order to save simulation time, the memories are preloaded.
+ucli% memory -read tb_fpga/uSSRAM1A/bank0 -file itcm0.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank1 -file itcm1.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank2 -file itcm2.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank3 -file itcm3.hex -radix hex 
+ucli%                                      
+ucli% memory -read tb_fpga/uSSRAM1B/bank0 -file itcm4.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank1 -file itcm5.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank2 -file itcm6.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank3 -file itcm7.hex -radix hex 
+ucli% # Preload ZBT memories, (SSRAM2 and 3) to avoid X in read data
+ucli% memory -read tb_fpga/uSSRAM2/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank3 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank3 -fill 0
+ucli% # Force zbt_boot_ctrl to be active, this makes code execute from the SSRAM
+ucli% # as it does on the MPS2 board
+ucli% force tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/zbt_boot_ctrl 1
+ucli% # ------------
+ucli% # End of setup
+ucli% # ------------
+ucli% # Other commands below here
+ucli% run
+     295640 ns UART: 
+     448880 ns UART: Cortex Microcontroller System Design Kit - Watchdog Demo - revision $Revision: 3
+     458160 ns UART: 68444 $
+     474360 ns UART: 
+     529560 ns UART: Watchdog demo test
+     545760 ns UART: 
+     606760 ns UART: Main program part 1
+     622960 ns UART: 
+     680600 ns UART: - Detect ID registers
+     696800 ns UART: 
+     825480 ns UART: Values[0]=0x24
+     955920 ns UART: Values[1]=0xb8
+    1086360 ns UART: Values[2]=0x1b
+    1214120 ns UART: Values[3]=0x0
+    1341760 ns UART: Values[4]=0xd
+    1472200 ns UART: Values[5]=0xf0
+    1599840 ns UART: Values[6]=0x5
+    1730280 ns UART: Values[7]=0xb1
+    1760920 ns UART: 
+    1843120 ns UART: - Program watchdog for 10000 cycles
+    1911800 ns UART:   Unlocking watchdog...
+    1980720 ns UART:   Set to NMI generation
+    2044640 ns UART:   Locking watchdog...
+    2141120 ns UART: - Run loop with watchdog set regularly 10 times
+    2157320 ns UART: 
+    2230800 ns UART:   Watchdog value set again
+    2303960 ns UART:   Watchdog value set again
+    2377120 ns UART:   Watchdog value set again
+    2450280 ns UART:   Watchdog value set again
+    2523440 ns UART:   Watchdog value set again
+    2596600 ns UART:   Watchdog value set again
+    2669760 ns UART:   Watchdog value set again
+    2742920 ns UART:   Watchdog value set again
+    2816080 ns UART:   Watchdog value set again
+    2889240 ns UART:   Watchdog value set again
+    2958000 ns UART:   Unlocking watchdog...
+    3018440 ns UART:   Set to no action
+    3082360 ns UART:   Locking watchdog...
+    3110600 ns UART: 
+    3169960 ns UART: - Test NMI generation
+    3238880 ns UART:   Unlocking watchdog...
+    3307800 ns UART:   Set to NMI generation
+    3371720 ns UART:   Locking watchdog...
+    3566360 ns UART: NMI Handler Entered! 
+    3582560 ns UART: 
+    3654200 ns UART:   Unlocking watchdog...
+    3714640 ns UART:   Set to no action
+    3778560 ns UART:   Locking watchdog...
+    3806480 ns UART: 
+    3868640 ns UART: - Test reset generation
+    3937680 ns UART:   Unlocking watchdog...
+    4008040 ns UART:   Set to reset generation
+    4071880 ns UART:   Locking watchdog...
+    4266640 ns UART: NMI Handler Entered! 
+    4282840 ns UART: 
+    4691280 ns UART: 
+    4844520 ns UART: Cortex Microcontroller System Design Kit - Watchdog Demo - revision $Revision: 3
+    4853800 ns UART: 68444 $
+    4870000 ns UART: 
+    4945520 ns UART: Restarted by Watchdog reset
+    5008080 ns UART: Main program part 2
+    5079960 ns UART: - Watchdog reset completed
+    5181600 ns UART:   SYSCON->RSTINFO = 2
+    5243560 ns UART: - Clear reset info
+    5345320 ns UART:   SYSCON->RSTINFO = 0
+    5428640 ns UART: Watchdog reset performed successfully
+    5444840 ns UART: 
+    5561560 ns UART: Testing generation of NMI using integration test register
+    5622000 ns UART: NMI Handler Entered! 
+    5638200 ns UART: 
+    5723040 ns UART: Watchdog demo completed successfully
+    5771800 ns UART: ** TEST PASSED ** 
+    5788000 ns UART: 
+    5793920 ns UART: Test Ended
+ucli% quit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5793920000 ps
+CPU Time:     45.100 seconds;       Data structure size:  39.7Mb
+Sat Oct 27 00:22:41 2018

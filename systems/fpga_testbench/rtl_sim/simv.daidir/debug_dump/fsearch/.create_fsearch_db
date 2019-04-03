@@ -1,0 +1,9 @@
+#!/bin/sh -h 
+PYTHONHOME=/home/zhou/eda/synopsys/vcs/etc/search/pyh
+export PYTHONHOME
+PYTHONPATH=/home/zhou/eda/synopsys/vcs/linux64/lib/pylib27
+export PYTHONPATH
+LD_LIBRARY_PATH=/home/zhou/eda/synopsys/vcs/linux64/lib:/home/zhou/eda/synopsys/vcs/linux64/lib/pylib27
+export LD_LIBRARY_PATH
+/home/zhou/eda/synopsys/vcs/linux64/bin/vcsfind_create_index.exe  -z  "/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/fpga_testbench/rtl_sim/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" "/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/fpga_testbench/rtl_sim/simv.daidir/debug_dump/fsearch/./idents_ioBTTy.xml.gz" -o "/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/fpga_testbench/rtl_sim/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+\mv "/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/fpga_testbench/rtl_sim/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/fpga_testbench/rtl_sim/simv.daidir/debug_dump/fsearch/fsearch.db"

@@ -1,0 +1,77 @@
+
+Warning-[RT_UO] Unsupported option
+  Unsupported option '-full64' is ignored
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 01:48 2018
+*Verdi3* Loading libsscore_vcs201403.so
+*Verdi3* : Enable Parallel Dumping.
+ucli% # -----------------------------------------------------------------------------
+ucli% # The confidential and proprietary information contained in this file may
+ucli% # only be used by a person authorised under and to the extent permitted
+ucli% # by a subsisting licensing agreement from ARM Limited.
+ucli% #
+ucli% #            (C) COPYRIGHT 2010-2015 ARM Limited.
+ucli% #                ALL RIGHTS RESERVED
+ucli% #
+ucli% # This entire notice must be reproduced on all copies of this file
+ucli% # and copies of this file may only be made by a person if such person is
+ucli% # permitted to do so under the terms of a subsisting license agreement
+ucli% # from ARM Limited.
+ucli% #
+ucli% #      SVN Information
+ucli% #
+ucli% #      Checked In          : $Date: 2017-08-11 14:44:16 +0100 (Fri, 11 Aug 2017) $
+ucli% #
+ucli% #      Revision            : $Revision: 369125 $
+ucli% #
+ucli% #      Release Information : 
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # Setup script for VCS
+ucli% # This script has 3 main functions.
+ucli% # 1.  Force address bus to 0, run for 1us, release address bus.  This removes warnings
+ucli% #     from the memories regarding X indexing their arrays.
+ucli% # 2.  Preload the SSRAM1 bank with the code from the generated hex files
+ucli% # 3.  Force the zbt_boot_ctrl to be active so that the code is run from the 
+ucli% #     preloaded SSRAM1 bank above
+ucli% #
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # At the start of simulation, due to the memory bus being X, most memories
+ucli% # issue a warning.  To clean this up, force the bus to 0, run the sim for 1us
+ucli% # so that the reset has seen a clock cycle, then remove the force and allow
+ucli% # the simulation to run normally.
+ucli% # Path list of all the memory indicies that are unknown at the start of simulation
+ucli% set addr_list [list \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr \
+  tb_fpga/uSSRAM1A/raddr \
+  tb_fpga/uSSRAM1B/raddr \
+  tb_fpga/uSSRAM2/raddr \
+  tb_fpga/uSSRAM3/raddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg \
+]
+tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr tb_fpga/uSSRAM1A/raddr tb_fpga/uSSRAM1B/raddr tb_fpga/uSSRAM2/raddr tb_fpga/uSSRAM3/raddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg
+ucli% # Tie them all inactive, run the simulation for a few clock cycles
+ucli% # then release
+ucli% foreach addr $addr_list { force $addr 0 }
+file vcs_cmd.do, line 54: Error-[UCLI-FORCE-NODBG] Unable to force object
+  Forcing object 
+  'tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr'
+  in module 'cmsdk_mcu_system'  was not successful. 
+  The object was not compiled with the required debug capability.  You can add
+  'force' capability using a PLI tab file, or you can recompile with the 
+  '-debug_access+all' option.  Please enter "force -help" for more details, or
+  refer to UCLI user guide for more documentation on force commands.  Please 
+  recompile using the '-debug_access<+options>' switch and incremental options
+  as required.  Recommended options are '-debug_access' for post-process 
+  debug, '-debug_access+classdbg' for testbench debug, and '-debug_access+all'
+  for all debug capabilities.  Refer the VCS user guide for more granular 
+  options for debug control under the switch '-debug_access' and refer to 
+  '-debug_region' for region control.
+ucli% 

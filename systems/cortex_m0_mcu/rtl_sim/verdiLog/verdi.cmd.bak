@@ -1,0 +1,38 @@
+debImport "+v2k" "-sverilog" "-full64" "-f" "../verilog/filelist.f"
+debLoadSimResult \
+           /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/tb_cmsdk_mcu.fsdb
+wvCreateWindow
+verdiDockWidgetDisplay -dock widgetDock_WelcomePage
+verdiDockWidgetHide -dock widgetDock_WelcomePage
+srcHBSelect "tb_cmsdk_mcu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu" -delim "."
+srcHBSelect "tb_cmsdk_mcu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu" -delim "."
+srcHBSelect "tb_cmsdk_mcu.bufif1\$1" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu.bufif1\$1" -delim "."
+srcDeselectAll -win $_nTrace1
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom" -delim "."
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom" -delim "."
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_cm0p_32to16_dnsize" -win \
+           $_nTrace1
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_cm0p_32to16_dnsize" -win \
+           $_nTrace1
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_cm0p_32to16_dnsize" -win \
+           $_nTrace1
+srcSetScope -win $_nTrace1 \
+           "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_cm0p_32to16_dnsize" -delim \
+           "."
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_flash_rom32" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_flash_rom32" \
+           -delim "."
+srcHBSelect "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_fpga_rom" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_cmsdk_mcu.u_cmsdk_mcu.u_ahb_rom.u_fpga_rom" -delim \
+           "."
+srcHBSelect "cmsdk_apb_timeout_mon" -win $_nTrace1
+srcHBSelect "cmsdk_apb_timeout_mon" -win $_nTrace1
+srcHBSelect "tb_cmsdk_mcu" -win $_nTrace1
+srcHBSelect "tb_cmsdk_mcu" -win $_nTrace1
+srcExpandTreebyLevel -win $_nTrace1 -all
+debExit

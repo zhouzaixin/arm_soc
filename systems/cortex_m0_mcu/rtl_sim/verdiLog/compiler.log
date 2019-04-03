@@ -1,0 +1,889 @@
+*design* DebussyLib (btIdent Verdi3_I-2014.03)
+Command arguments:
+    +define+verilog
+    +v2k
+    -sverilog
+    -full64
+*Warning* Unknown argument -full64
+
+    -f ../verilog/filelist.f
+        ../../../logical/cmsdk_ahb_to_ahb_sync/verilog/cmsdk_ahb_to_ahb_sync.v
+        ../../../logical/cmsdk_ahb_bitband/verilog/cmsdk_ahb_bitband.v
+        ../../../logical/cmsdk_apb_watchdog/verilog/cmsdk_apb_watchdog_defs.v
+        ../../../logical/cmsdk_apb_watchdog/verilog/cmsdk_apb_watchdog.v
+        ../../../logical/cmsdk_apb_watchdog/verilog/cmsdk_apb_watchdog_frc.v
+        ../../../logical/cmsdk_ahb_upsizer64/verilog/cmsdk_ahb_upsizer64.v
+        ../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v
+        ../../../logical/cmsdk_ahb_fileread_masters/verilog/cmsdk_ahb_fileread_master32.v
+        ../../../logical/cmsdk_ahb_fileread_masters/verilog/cmsdk_ahb_fileread_master64.v
+        ../../../logical/cmsdk_ahb_fileread_masters/verilog/cmsdk_ahb_fileread_funnel.v
+        ../../../logical/cmsdk_ahb_fileread_masters/verilog/cmsdk_ahb_filereadcore.v
+        ../../../logical/cmsdk_ahb_gpio/verilog/cmsdk_ahb_to_iop.v
+        ../../../logical/cmsdk_ahb_gpio/verilog/cmsdk_ahb_gpio.v
+        ../../../logical/models/memories/cmsdk_sram256x16.v
+        ../../../logical/models/memories/cmsdk_ahb_rom.v
+        ../../../logical/models/memories/cmsdk_ahb_ram_beh.v
+        ../../../logical/models/memories/cmsdk_ahb_ram.v
+        ../../../logical/models/memories/cmsdk_ahb_memory_models_defs.v
+        ../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v
+        ../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v
+        ../../../logical/models/clkgate/cmsdk_clock_gate.v
+        ../../../logical/cmsdk_apb_timeout_mon/verilog/cmsdk_apb_timeout_mon.v
+        ../../../logical/cmsdk_ahb_to_apb_async/verilog/cmsdk_ahb_to_apb_async_h.v
+        ../../../logical/cmsdk_ahb_to_apb_async/verilog/cmsdk_ahb_to_apb_async.v
+        ../../../logical/cmsdk_ahb_to_apb_async/verilog/cmsdk_ahb_to_apb_async_syn.v
+        ../../../logical/cmsdk_ahb_to_apb_async/verilog/cmsdk_ahb_to_apb_async_p.v
+        ../../../logical/cmsdk_debug_tester/verilog/cmsdk_debug_tester_ahb_interconnect.v
+        ../../../logical/cmsdk_debug_tester/verilog/cmsdk_debug_tester.v
+        ../../../logical/cmsdk_debug_tester/verilog/cmsdk_debug_tester_trace_capture.v
+        ../../../logical/cmsdk_ahb_to_sram/verilog/cmsdk_ahb_to_sram.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async_sample_and_hold.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async_master.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async_launch.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async_slave.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async.v
+        ../../../logical/cmsdk_ahb_to_ahb_apb_async/verilog/cmsdk_ahb_to_ahb_apb_async_synchronizer.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_down/verilog/cmsdk_ahb_to_ahb_sync_down.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_down/verilog/cmsdk_ahb_to_ahb_sync_down_core.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_down/verilog/cmsdk_ahb_to_ahb_sync_wb.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_down/verilog/cmsdk_ahb_to_ahb_sync_error_canc.v
+        ../../../logical/cmsdk_ahb_to_extmem16/verilog/cmsdk_ahb_to_extmem16_mem_fsm.v
+        ../../../logical/cmsdk_ahb_to_extmem16/verilog/cmsdk_ahb_to_extmem16_ahb_fsm.v
+        ../../../logical/cmsdk_ahb_to_extmem16/verilog/cmsdk_ahb_to_extmem16.v
+        ../../../logical/cmsdk_iop_gpio/verilog/cmsdk_iop_gpio.v
+        ../../../logical/cmsdk_apb_subsystem/verilog/cmsdk_apb_subsystem.v
+        ../../../logical/cmsdk_apb_subsystem/verilog/cmsdk_apb_test_slave.v
+        ../../../logical/cmsdk_apb_subsystem/verilog/cmsdk_irq_sync.v
+        ../../../logical/cmsdk_apb_subsystem/verilog/cmsdk_apb_subsystem_m0ds.v
+        ../../../logical/cmsdk_apb3_eg_slave/verilog/cmsdk_apb3_eg_slave_interface.v
+        ../../../logical/cmsdk_apb3_eg_slave/verilog/cmsdk_apb3_eg_slave_reg.v
+        ../../../logical/cmsdk_apb3_eg_slave/verilog/cmsdk_apb3_eg_slave.v
+        ../../../logical/cmsdk_apb_dualtimers/verilog/cmsdk_apb_dualtimers_defs.v
+        ../../../logical/cmsdk_apb_dualtimers/verilog/cmsdk_apb_dualtimers_frc.v
+        ../../../logical/cmsdk_apb_dualtimers/verilog/cmsdk_apb_dualtimers.v
+        ../../../logical/cmsdk_ahb_timeout_mon/verilog/cmsdk_ahb_timeout_mon.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_arb.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_input_stage.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix_lite.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_burst_arb.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix.v
+        ../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_fixed_arb.v
+        ../../../logical/cmsdk_ahb_default_slave/verilog/cmsdk_ahb_default_slave.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_dec_S2.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_dec_S1.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_arb_M1.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_arb_M0.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_default_slave.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_ip.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_lite.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_op_M0.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_dec_S3.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_op_M1.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2.v
+        ../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_dec_S0.v
+        ../../../logical/cmsdk_ahb_eg_slave/verilog/cmsdk_ahb_eg_slave_reg.v
+        ../../../logical/cmsdk_ahb_eg_slave/verilog/cmsdk_ahb_eg_slave_interface.v
+        ../../../logical/cmsdk_ahb_eg_slave/verilog/cmsdk_ahb_eg_slave.v
+        ../../../logical/cmsdk_ahb_slave_mux/verilog/cmsdk_ahb_slave_mux.v
+        ../../../logical/cmsdk_fpga_sram/verilog/cmsdk_fpga_sram.v
+        ../../../logical/cmsdk_ahb_downsizer64/verilog/cmsdk_ahb_downsizer64.v
+        ../../../logical/cmsdk_ahb_to_flash32/verilog/cmsdk_ahb_to_flash32.v
+        ../../../logical/cmsdk_apb_timer/verilog/cmsdk_apb_timer.v
+        ../../../logical/cmsdk_ahb_to_flash16/verilog/cmsdk_ahb_to_flash16.v
+        ../../../logical/cmsdk_ahb_master_mux/verilog/cmsdk_ahb_master_mux.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_up/verilog/cmsdk_ahb_to_ahb_sync_up.v
+        ../../../logical/cmsdk_ahb_to_ahb_sync_up/verilog/cmsdk_ahb_to_ahb_sync_up_core.v
+        ../../../logical/cmsdk_apb_slave_mux/verilog/cmsdk_apb_slave_mux.v
+        ../../../logical/cmsdk_ahb_to_apb/verilog/cmsdk_ahb_to_apb.v
+        ../../../logical/cmsdk_apb4_eg_slave/verilog/cmsdk_apb4_eg_slave_reg.v
+        ../../../logical/cmsdk_apb4_eg_slave/verilog/cmsdk_apb4_eg_slave_interface.v
+        ../../../logical/cmsdk_apb4_eg_slave/verilog/cmsdk_apb4_eg_slave.v
+        ../../../logical/cmsdk_apb_uart/verilog/cmsdk_apb_uart.v
+        ../../../cores/cortexm0_designstart_r2p0/logical/cortexm0_integration/verilog/cortexm0ds_logic.v
+        ../../../cores/cortexm0_designstart_r2p0/logical/cortexm0_integration/verilog/CORTEXM0INTEGRATION.v
+        ../verilog/cmsdk_clkreset.v
+        ../verilog/cmsdk_mcu_addr_decode.v
+        ../verilog/cmsdk_mcu_stclkctrl.v
+        ../verilog/cmsdk_mcu_defs.v
+        ../verilog/cmsdk_mcu_sysctrl.v
+        ../verilog/tb_cmsdk_mcu.v
+        ../verilog/cmsdk_ahb_cs_rom_table.v
+        ../verilog/cmsdk_uart_capture.v
+        ../verilog/cmsdk_mcu_clkctrl.v
+        ../verilog/cmsdk_mcu.v
+        ../verilog/cmsdk_mcu_system.v
+        ../verilog/cmsdk_mcu_pin_mux.v
+
+
+*Error* `include file "cmsdk_apb_watchdog_defs.v" cannot be read
+"../../../logical/cmsdk_apb_watchdog/verilog/cmsdk_apb_watchdog.v", 53: 
+
+*Error* `include file "cmsdk_apb_watchdog_defs.v" cannot be read
+"../../../logical/cmsdk_apb_watchdog/verilog/cmsdk_apb_watchdog_frc.v", 54: 
+
+*Error* `include file "cmsdk_ahb_memory_models_defs.v" cannot be read
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 47: 
+
+*Error* macro `AHB_ROM_NONE not defined
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 79: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 79: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 83: 
+
+*Error* macro `AHB_ROM_BEH_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 88: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 88: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 111: 
+
+*Error* macro `AHB_ROM_FPGA_SRAM_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 117: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 117: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 167: 
+
+*Error* macro `AHB_ROM_FLASH32_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 173: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 173: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 216: 
+
+*Error* macro `AHB_ROM_FLASH16_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 221: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 221: 
+
+*Warning* symbol FLASHADDR duplicated
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 223: 
+
+*Warning* symbol FLASHRDATA duplicated
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 224: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 317: 
+
+*Error* `include file "cmsdk_ahb_memory_models_defs.v" cannot be read
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 46: 
+
+*Error* macro `AHB_RAM_NONE not defined
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 74: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 74: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 78: 
+
+*Error* macro `AHB_RAM_BEH_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 83: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 83: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 106: 
+
+*Error* macro `AHB_RAM_FPGA_SRAM_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 112: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 112: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 160: 
+
+*Error* macro `AHB_RAM_EXT_SRAM16_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 170: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 170: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 248: 
+
+*Error* macro `AHB_RAM_EXT_SRAM8_MODEL not defined
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 258: 
+
+*Error* Syntax error at begin
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 258: 
+
+*Warning* symbol EMIADDR duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 260: 
+
+*Warning* symbol EMIDATA duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 261: 
+
+*Warning* symbol EMIDATAIN duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 262: 
+
+*Warning* symbol EMIDATAOUT duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 263: 
+
+*Warning* symbol EMIDATAOEn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 264: 
+
+*Warning* symbol EMIWEn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 265: 
+
+*Warning* symbol EMIOEn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 266: 
+
+*Warning* symbol EMICEn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 267: 
+
+*Warning* symbol EMILBn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 268: 
+
+*Warning* symbol EMIUBn duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 269: 
+
+*Warning* symbol CFGREADCYCLE duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 271: 
+
+*Warning* symbol CFGWRITECYCLE duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 272: 
+
+*Warning* symbol CFGTURNAROUNDCYCLE duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 273: 
+
+*Warning* symbol CFGSIZE duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 274: 
+
+*Warning* symbol u_ahb_to_extmem16 duplicated
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 284: 
+
+*Error* Syntax error at end
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 334: 
+
+*Error* `include file "std_ovl_defines.h" cannot be read
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 126: 
+
+*Error* macro `OVL_FATAL not defined
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 128: 
+
+*Error* Syntax error at localparam
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 129: 
+
+*Error* macro `OVL_ERROR not defined
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 129: 
+
+*Error* macro `OVL_WARNING not defined
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 130: 
+
+*Error* Syntax error at initial
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 142: 
+
+*Error* Syntax error at $display
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 145: 
+
+*Error* Syntax error at $display
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 149: 
+
+*Error* Syntax error at $display
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 150: 
+
+*Error* Syntax error at end
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 151: 
+
+*Error* `include file "cmsdk_apb_dualtimers_defs.v" cannot be read
+"../../../logical/cmsdk_apb_dualtimers/verilog/cmsdk_apb_dualtimers_frc.v", 50: 
+
+*Error* `include file "cmsdk_apb_dualtimers_defs.v" cannot be read
+"../../../logical/cmsdk_apb_dualtimers/verilog/cmsdk_apb_dualtimers.v", 55: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v", 116: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v", 116: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v", 123: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v", 29: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_default_slave.v", 31: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 36: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 38: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 298: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 305: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 306: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 308: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 310: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 311: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 312: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 313: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 314: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 316: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 317: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 319: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 320: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 366: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_output_stage.v", 374: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_arb.v", 130: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_arb.v", 134: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_arb.v", 37: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_single_arb.v", 39: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_input_stage.v", 36: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_input_stage.v", 38: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_input_stage.v", 445: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_input_stage.v", 450: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 33: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 35: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 321: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 330: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 333: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_round_arb.v", 336: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 247: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 252: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 34: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 36: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 276: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 302: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 331: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 373: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 395: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 416: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_decode.v", 438: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 33: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 35: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 307: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 363: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 463: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_output_stage.v", 488: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix_lite.v", 31: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix_lite.v", 33: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_burst_arb.v", 280: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_burst_arb.v", 282: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_burst_arb.v", 33: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_burst_arb.v", 35: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix.v", 52: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_busmatrix.v", 54: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_fixed_arb.v", 145: 
+
+*Error* pre-processing syntax error of token '<<'
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_fixed_arb.v", 147: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_fixed_arb.v", 33: 
+
+*Error* Syntax error at <<
+"../../../logical/cmsdk_ahb_busmatrix/verilog/src/cmsdk_ahb_bm_fixed_arb.v", 35: 
+
+*Warning* macro RSP_OKAY redefined from (<<resp_v>>'b<<bin_resp_okay>>) to (2'b00)
+"../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_default_slave.v", 72: 
+
+*Warning* macro RSP_ERROR redefined from (<<resp_v>>'b<<bin_resp_error>>) to (2'b01)
+"../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_default_slave.v", 73: 
+
+*Warning* macro RSP_RETRY redefined from (<<resp_v>>'b<<bin_resp_retry>>) to (2'b10)
+"../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_default_slave.v", 74: 
+
+*Warning* macro RSP_SPLIT redefined from (<<resp_v>>'b<<bin_resp_split>>) to (2'b11)
+"../../../logical/cmsdk_mcu_mtx4x2/verilog/cmsdk_mcu_mtx4x2_default_slave.v", 75: 
+
+*Error* `include file "fpga_options_defs.v" cannot be read
+"../../../logical/cmsdk_fpga_sram/verilog/cmsdk_fpga_sram.v", 26: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/cmsdk_mcu_addr_decode.v", 31: 
+
+*Error* `include file "cmsdk_ahb_memory_models_defs.v" cannot be read
+"../verilog/cmsdk_mcu_defs.v", 44: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/cmsdk_mcu_sysctrl.v", 45: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/tb_cmsdk_mcu.v", 30: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/cmsdk_mcu_clkctrl.v", 31: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/cmsdk_mcu.v", 30: 
+
+*Error* `include file "cmsdk_mcu_defs.v" cannot be read
+"../verilog/cmsdk_mcu_system.v", 37: 
+Highest level modules:
+cmsdk_ahb_to_ahb_sync
+cmsdk_ahb_bitband
+cmsdk_ahb_upsizer64
+tb_frbm_example
+cmsdk_ahb_fileread_master32
+cmsdk_ahb_fileread_master64
+ApbPC
+AhbLitePC
+cmsdk_apb_timeout_mon
+cmsdk_ahb_to_apb_async
+cmsdk_debug_tester
+cmsdk_debug_tester_trace_capture
+cmsdk_ahb_to_ahb_apb_async
+cmsdk_ahb_to_ahb_sync_down
+cmsdk_apb_subsystem_m0ds
+cmsdk_apb3_eg_slave
+cmsdk_ahb_timeout_mon
+cmsdk_mcu_mtx4x2_lite
+cmsdk_ahb_eg_slave
+cmsdk_ahb_downsizer64
+cmsdk_ahb_master_mux
+cmsdk_ahb_to_ahb_sync_up
+cmsdk_apb4_eg_slave
+tb_cmsdk_mcu
+
+
+*Error* view ahb_fileread_master32 is not defined for instance u_ahb_fileread_master32
+"../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v", 113: 
+
+*Error* view ahb_slave_mux is not defined for instance u_ahb_slave_mux
+"../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v", 155: 
+
+*Error* view ahb_eg_slave is not defined for instance u_ahb_eg_slave
+"../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v", 202: 
+
+*Error* view ahb_ram_beh is not defined for instance u_ahb_ram_beh
+"../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v", 233: 
+
+*Error* view ahb_default_slave is not defined for instance u_ahb_default_slave
+"../../../logical/cmsdk_ahb_fileread_masters/example/tb_frbm_example.v", 253: 
+
+*Error* view cmsdk_fpga_rom is not defined for instance u_fpga_rom
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 156: 
+
+*Error* view cmsdk_flash_rom32 is not defined for instance u_flash_rom32
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 209: 
+
+*Error* view cm0p_32to16_dnsize is not defined for instance u_cm0p_32to16_dnsize
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 238: 
+
+*Warning* port sizes differ (16 vs 32) in port connection (port FLASHRDATA)
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 301: 
+
+*Error* view cmsdk_flash_rom16 is not defined for instance u_flash_rom16
+"../../../logical/models/memories/cmsdk_ahb_rom.v", 310: 
+
+*Error* view cmsdk_sram256x8 is not defined for instance u_sram256x8
+"../../../logical/models/memories/cmsdk_ahb_ram.v", 326: 
+
+*Error* failed to find identifier APB_SimFatal
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 264: 
+
+*Error* failed to find identifier APB_SimFatal
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 273: 
+
+*Error* failed to find identifier APB_SimFatal
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 282: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 295: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 305: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 322: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 332: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 342: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 356: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 366: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 376: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 386: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 396: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 409: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 426: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 437: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 448: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 459: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 470: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 481: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 492: 
+
+*Error* failed to find identifier APB_SimError
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 503: 
+
+*Error* failed to find identifier APB_SimWarning
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 518: 
+
+*Error* view assert_proposition is not defined for instance u_addr_width
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 266: 
+
+*Error* view assert_proposition is not defined for instance u_data_width
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 275: 
+
+*Error* view assert_proposition is not defined for instance u_sel_width
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 284: 
+
+*Error* view assert_one_hot is not defined for instance u_state_valid
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 297: 
+
+*Error* view assert_always is not defined for instance u_state_transition_valid
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 307: 
+
+*Error* view assert_zero_one_hot is not defined for instance u_psel_notreset_01hot
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 324: 
+
+*Error* view assert_never is not defined for instance u_psel_reset_0
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 334: 
+
+*Error* view assert_never is not defined for instance u_pstrb_read_0
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 344: 
+
+*Error* view assert_never is not defined for instance u_paddr_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 358: 
+
+*Error* view assert_never is not defined for instance u_pprot_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 368: 
+
+*Error* view assert_never is not defined for instance u_psel_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 378: 
+
+*Error* view assert_never is not defined for instance u_pwrite_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 388: 
+
+*Error* view assert_never is not defined for instance u_pstrb_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 398: 
+
+*Error* view assert_never is not defined for instance u_pwdata_chg
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 411: 
+
+*Error* view assert_never_unknown is not defined for instance u_paddr_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 428: 
+
+*Error* view assert_never_unknown is not defined for instance u_pprot_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 439: 
+
+*Error* view assert_never_unknown is not defined for instance u_psel_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 450: 
+
+*Error* view assert_never_unknown is not defined for instance u_penable_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 461: 
+
+*Error* view assert_never_unknown is not defined for instance u_pwrite_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 472: 
+
+*Error* view assert_never_unknown is not defined for instance u_pstrb_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 483: 
+
+*Error* view assert_never_unknown is not defined for instance u_pready_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 494: 
+
+*Error* view assert_never_unknown is not defined for instance u_pslverr_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 505: 
+
+*Error* view assert_never_unknown is not defined for instance u_pwdata_x
+"../../../logical/models/protocol_checkers/ApbPC/verilog/ApbPC.v", 520: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_htrans_reset
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 455: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_htrans_waited_idle
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 470: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_htrans_waited_nseq_seq
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 489: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_htrans_waited_busy
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 511: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_busy_not_first
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 529: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_busy_not_last
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 549: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_busy_seq_not_single
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 568: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_seq_not_first
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 583: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_burst_len
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 599: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_burst_term
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 620: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_burst_bound_incr_undef
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 638: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_burst_bound_incr_fixed
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 675: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_burst_bound_wrap
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 694: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_ctl_const_burst
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 713: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_ctl_const_busy
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 734: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_ctl_const_wait
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 760: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_haddr_incr
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 815: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_haddr_wrap
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 863: 
+
+*Error* view assert_implication is not defined for instance ahb_errm_hwdata_wait
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 950: 
+
+*Error* view assert_implication is not defined for instance ahb_recm_unlock_idle
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 970: 
+
+*Error* view assert_implication is not defined for instance ahb_errs_hreadyout_reset
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 989: 
+
+*Error* view assert_implication is not defined for instance ahb_errs_hreadyout_hresp_idle
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1004: 
+
+*Error* view assert_implication is not defined for instance ahb_errs_hreadyout_hresp_busy
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1019: 
+
+*Error* view assert_implication is not defined for instance ahb_errs_hresp_cycle1
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1038: 
+
+*Error* view assert_implication is not defined for instance ahb_errs_hresp_cycle2
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1057: 
+
+*Error* view assert_implication is not defined for instance ahb_recs_hresp_reset
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1075: 
+
+*Error* view assert_implication is not defined for instance ahb_recs_hreadyout_nonsel
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1089: 
+
+*Error* view assert_implication is not defined for instance ahb_recs_hresp_nonsel
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1103: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hready_reset
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1124: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hready_idle
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1141: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hready_busy
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1158: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hready_hreadyout_sel
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1173: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hsel_haddr
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1194: 
+
+*Error* view assert_implication is not defined for instance ahb_erri_hsel_burst
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1211: 
+
+*Error* view assert_always is not defined for instance ahb_errm_haddr_aligned
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 789: 
+
+*Error* view assert_always is not defined for instance ahb_errm_hsize_too_wide
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 882: 
+
+*Error* view assert_proposition is not defined for instance ahb_param_addr_width
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1229: 
+
+*Error* view assert_proposition is not defined for instance ahb_param_data_width
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1242: 
+
+*Error* view assert_never_unknown is not defined for instance HADDR_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1277: 
+
+*Error* view assert_never_unknown is not defined for instance HBURST_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1280: 
+
+*Error* view assert_never_unknown is not defined for instance HMASTLOCK_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1283: 
+
+*Error* view assert_never_unknown is not defined for instance HPROT_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1286: 
+
+*Error* view assert_never_unknown is not defined for instance HSIZE_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1289: 
+
+*Error* view assert_never_unknown is not defined for instance HTRANS_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1292: 
+
+*Error* view assert_never_unknown is not defined for instance HWRITE_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1297: 
+
+*Error* view assert_never_unknown is not defined for instance HREADYOUT_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1304: 
+
+*Error* view assert_never_unknown is not defined for instance HRESP_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1307: 
+
+*Error* view assert_never_unknown is not defined for instance HREADY_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1312: 
+
+*Error* view assert_never_unknown is not defined for instance HSEL_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1315: 
+
+*Error* view assert_never_unknown is not defined for instance HWDATA_X_check
+"../../../logical/models/protocol_checkers/AhbLitePC/verilog/AhbLitePC.v", 1325: 
+Total	225 error(s),   23 warning(s)

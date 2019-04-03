@@ -1,0 +1,275 @@
+
+Note-[RT_BS] Larger stack needed
+  Note: Bumping stack limit from 8192 to 8193 Kbytes.
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 00:15 2018
+ucli% # -----------------------------------------------------------------------------
+ucli% # The confidential and proprietary information contained in this file may
+ucli% # only be used by a person authorised under and to the extent permitted
+ucli% # by a subsisting licensing agreement from ARM Limited.
+ucli% #
+ucli% #            (C) COPYRIGHT 2010-2015 ARM Limited.
+ucli% #                ALL RIGHTS RESERVED
+ucli% #
+ucli% # This entire notice must be reproduced on all copies of this file
+ucli% # and copies of this file may only be made by a person if such person is
+ucli% # permitted to do so under the terms of a subsisting license agreement
+ucli% # from ARM Limited.
+ucli% #
+ucli% #      SVN Information
+ucli% #
+ucli% #      Checked In          : $Date: 2017-08-11 14:44:16 +0100 (Fri, 11 Aug 2017) $
+ucli% #
+ucli% #      Revision            : $Revision: 369125 $
+ucli% #
+ucli% #      Release Information : 
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # Setup script for VCS
+ucli% # This script has 3 main functions.
+ucli% # 1.  Force address bus to 0, run for 1us, release address bus.  This removes warnings
+ucli% #     from the memories regarding X indexing their arrays.
+ucli% # 2.  Preload the SSRAM1 bank with the code from the generated hex files
+ucli% # 3.  Force the zbt_boot_ctrl to be active so that the code is run from the 
+ucli% #     preloaded SSRAM1 bank above
+ucli% #
+ucli% # -----------------------------------------------------------------------------
+ucli% #
+ucli% # At the start of simulation, due to the memory bus being X, most memories
+ucli% # issue a warning.  To clean this up, force the bus to 0, run the sim for 1us
+ucli% # so that the reset has seen a clock cycle, then remove the force and allow
+ucli% # the simulation to run normally.
+ucli% # Path list of all the memory indicies that are unknown at the start of simulation
+ucli% set addr_list [list \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr \
+  tb_fpga/uSSRAM1A/raddr \
+  tb_fpga/uSSRAM1B/raddr \
+  tb_fpga/uSSRAM2/raddr \
+  tb_fpga/uSSRAM3/raddr \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg \
+  tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg \
+]
+tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_cmsdk_mcu_system/cm0_haddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahb_blockram_32/reg_haddr tb_fpga/uSSRAM1A/raddr tb_fpga/uSSRAM1B/raddr tb_fpga/uSSRAM2/raddr tb_fpga/uSSRAM3/raddr tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_console/u_video_ram/addr_b_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_a_reg tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/u_ahbvga/u_vga_image/u_image_ram/addr_b_reg
+ucli% # Tie them all inactive, run the simulation for a few clock cycles
+ucli% # then release
+ucli% foreach addr $addr_list { force $addr 0 }
+ucli% run 1us
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+*
+* Max. address:                        001ffff
+* Begin of full protection address:    0000000
+* Begin of half protection address:    0010000
+* Begin of quarter protection address: 0018000
+*
+===========================================================
+
+ nvSRAM Power UP 
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm3' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 181
+  Cannot open file 'itcm3' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm2' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 182
+  Cannot open file 'itcm2' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm1' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 183
+  Cannot open file 'itcm1' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'itcm0' could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+../../../smm_common/verilog/fpga/ahb_blockram_32.v, 184
+  Cannot open file 'itcm0' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
+1000000 ps
+ucli% foreach addr $addr_list { release $addr }
+ucli% # Preload ZBT memories, (SSRAM1)
+ucli% # In the MPS2 board, this is done by the microcontroller before it releases
+ucli% # the CPU reset.
+ucli% # If this was modelled in simulation, then simulation times would increase
+ucli% # significantly.  So in order to save simulation time, the memories are preloaded.
+ucli% memory -read tb_fpga/uSSRAM1A/bank0 -file itcm0.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank1 -file itcm1.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank2 -file itcm2.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1A/bank3 -file itcm3.hex -radix hex 
+ucli%                                      
+ucli% memory -read tb_fpga/uSSRAM1B/bank0 -file itcm4.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank1 -file itcm5.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank2 -file itcm6.hex -radix hex 
+ucli% memory -read tb_fpga/uSSRAM1B/bank3 -file itcm7.hex -radix hex 
+ucli% # Preload ZBT memories, (SSRAM2 and 3) to avoid X in read data
+ucli% memory -read tb_fpga/uSSRAM2/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM2/bank3 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank0 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank1 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank2 -fill 0
+ucli% memory -read tb_fpga/uSSRAM3/bank3 -fill 0
+ucli% # Force zbt_boot_ctrl to be active, this makes code execute from the SSRAM
+ucli% # as it does on the MPS2 board
+ucli% force tb_fpga/u_fpga_top/u_fpga_system/u_user_partition/zbt_boot_ctrl 1
+ucli% # ------------
+ucli% # End of setup
+ucli% # ------------
+ucli% # Other commands below here
+ucli% run
+     370800 ns UART: *** Designtest_m0
+     437400 ns UART: *** Testing Audio
+     524440 ns UART: *** Single PSRAM read
+     617400 ns UART: *** Testing SCC registers
+     832840 ns UART: Base address 0x4002F000
+    1046400 ns UART: DLLLOCK     0xFFFF0001
+    1192760 ns UART: SCC_LED     0x0000000F
+    1339360 ns UART: SCC_SW      0x00000000
+    1485960 ns UART: SCC_APBLOCK 0x00000000
+    1682800 ns UART: SCC_AID     0x03200708
+    1896280 ns UART: SCC_ID      0x41043871
+    2068080 ns UART: SYS_CFGDATA_SERIAL 0x00000000
+    2229120 ns UART: SYS_CFGDATA_APB 0x00000000
+    2375760 ns UART: SYS_CFGCTRL 0x00000000
+    2522440 ns UART: SYS_CFGSTAT 0x00000000
+    2646120 ns UART: Writing 0xa5a5a5a5 to SYS_CFGDATA_APB
+    2872160 ns UART: SYS_CFGDATA_APB 0xA5A5A5A5
+    2996400 ns UART: Writing 0xFFFFFFFF to SYS_CFGDATA_APB
+    3222920 ns UART: SYS_CFGDATA_APB 0xFFFFFFFF
+    3407800 ns UART: Writing 0xa5a5a5a5 to SYS_CFGCTRL - Also triggers interrupt
+    3619440 ns UART: SYS_CFGCTRL 0xA5A5A5A5
+    3732400 ns UART: Writing 0xFFFFFFFF to SYS_CFGCTRL
+    3944520 ns UART: SYS_CFGCTRL 0xFFFFFFFF
+    4082880 ns UART: *** Testing Reading FPGA control registers
+    4298880 ns UART: Base address 0x40028000
+    4423560 ns UART: Remap 0x00000001
+    4568960 ns UART: Timer 0 ID 0x00000022
+    4701160 ns UART: Timer 0 0x00000000
+    4755840 ns UART: Writing 0x55
+    4886000 ns UART: Timer 0 0x00000005
+    5018200 ns UART: Timer 1 0x00000000
+    5408800 ns UART: Counter 1Hz 0x00000000, 100Hz 0x00000001, Cycleup 0x0001E9A9
+    5587880 ns UART: EXT bus [15:0] = 0x0000FFFF
+    5771120 ns UART: EXT bus [31:16] = 0x0000FFFF
+    5954120 ns UART: EXT bus [47:32] = 0x0000FFFF
+    6122360 ns UART: EXT bus [51:48] = 0x0000000F
+    6224280 ns UART: Zeroing bus (not yet enabled)
+    6402080 ns UART: EXT bus [15:0] = 0x0000FFFF
+    6584600 ns UART: EXT bus [31:16] = 0x0000FFFF
+    6767120 ns UART: EXT bus [47:32] = 0x0000FFFF
+    6934960 ns UART: EXT bus [51:48] = 0x0000000F
+    7004160 ns UART: Enabled bus drive
+    7181080 ns UART: EXT bus [15:0] = 0x0000B831
+    7214000 ns UART: Pass
+    7394520 ns UART: EXT bus [31:16] = 0x0000C58F
+    7427360 ns UART: Pass
+    7606200 ns UART: EXT bus [47:32] = 0x000012C0
+    7639040 ns UART: Pass
+    7805280 ns UART: EXT bus [51:48] = 0x00000000
+    7838040 ns UART: Pass
+    8004000 ns UART: LEDs and buttons - Buttons are looped back from LEDs.
+    8163440 ns UART: Setting LEDs to 0x00000000
+    8302880 ns UART: Buttons = 0x00000000
+    8335760 ns UART: Pass
+    8494720 ns UART: Setting LEDs to 0x00000001
+    8633920 ns UART: Buttons = 0x00000001
+    8666800 ns UART: Pass
+    8825760 ns UART: Setting LEDs to 0x00000002
+    8964960 ns UART: Buttons = 0x00000002
+    8997840 ns UART: Pass
+    9156800 ns UART: Setting LEDs to 0x00000003
+    9296000 ns UART: Buttons = 0x00000003
+    9328880 ns UART: Pass
+    9719600 ns UART: Counter 1Hz 0x00000000, 100Hz 0x00000001, Cycleup 0x00038E79
+    9900720 ns UART: Checking Cycleup counter is counting - Pass
+   10001320 ns UART: *** Sending data from LCD I2C
+   10075520 ns UART: *** Testing PSRAM
+   10294680 ns UART: Start address 0x21000000
+   10515080 ns UART: End address   0x21000100
+   10877920 ns UART: Pass 64 locations tested
+   10963560 ns UART: *** Testing PSRAM burst
+   11183840 ns UART: Start address 0x21800000
+   11433040 ns UART: End address   0x21800100 ignored
+   11597640 ns UART: Pass 8 locations tested
+   11675000 ns UART: *** Testing Ethernet
+   11894080 ns UART: Start address 0x40200000
+   12114400 ns UART: End address   0x40200100
+   12477240 ns UART: Pass 64 locations tested
+   12543560 ns UART: *** Testing ZBT1
+   12730160 ns UART: Start address 0x00100000
+   12918000 ns UART: End address   0x00100100
+   13137480 ns UART: Pass 64 locations tested
+   13217600 ns UART: *** Testing ZBT burst
+   13405280 ns UART: Start address 0x00100000
+   13621920 ns UART: End address   0x00100100 ignored
+   13766560 ns UART: Pass 8 locations tested
+   13984680 ns UART: *** no need to test ZBT2 and ZBT3 for GCC since they are used for stack
+   14062320 ns UART: *** Testing block RAM
+   14263280 ns UART: Start address 0x01008000
+   14465440 ns UART: End address   0x01008100
+   14684920 ns UART: Pass 64 locations tested
+   14707320 ns UART: 
+   14723680 ns UART: 
+   14740040 ns UART: 
+   14784000 ns UART: ----------
+   14847280 ns UART: ** TEST PASSED **
+   14891240 ns UART: ----------
+   14907600 ns UART: 
+   14923960 ns UART: 
+   14940240 ns UART: 
+   14945760 ns UART: Test Ended
+ucli% quit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 14945760000 ps
+CPU Time:    115.730 seconds;       Data structure size:  39.7Mb
+Sat Oct 27 00:17:55 2018

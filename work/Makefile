@@ -15,5 +15,10 @@ install:
 	cp ${INST_RTL_CORE} ${CORE_DIR}
 	cp ${INST_RTL_PERIPS} ${PERIPS_DIR}
 
+install_fpga:
+	cd ${PWD}/fpga ; mkdir -p rtl run;
+	cp ${CORE_DIR}/*.v ${PWD}/fpga/rtl/
+	cp ${PERIPS_DIR}/*.v ${PWD}/fpga/rtl/
+
 clean:
-	rm *.log  ${CORE_DIR} ${PERIPS_DIR} -rf
+	rm *.log  ${CORE_DIR} ${PERIPS_DIR} ${PWD}/fpga/rtl/*.v -rf

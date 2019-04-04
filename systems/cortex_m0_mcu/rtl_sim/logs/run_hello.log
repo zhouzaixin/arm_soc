@@ -8,7 +8,7 @@ Warning-[RT_UO] Unsupported option
 
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 10:56 2018
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Apr  3 23:54 2019
 *Verdi3* Loading libsscore_vcs201403.so
 *Verdi3* : Enable Parallel Dumping.
 FSDB Dumper for VCS, Release Verdi3_I-2014.03, Linux x86_64/64bit, 02/10/2014
@@ -19,7 +19,6 @@ FSDB Dumper for VCS, Release Verdi3_I-2014.03, Linux x86_64/64bit, 02/10/2014
 *  may cause abnormal behavior, please contact Synopsys support for   *
 *  assistance.                                                        *
 ***********************************************************************
-*Verdi3* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
 *Verdi3* : Create FSDB file 'tb_cmsdk_mcu.fsdb'
 *Verdi3* : Begin traversing the scope (tb_cmsdk_mcu), layer (0).
 *Verdi3* : Enable +mda dumping.
@@ -30,5 +29,5 @@ FSDB Dumper for VCS, Release Verdi3_I-2014.03, Linux x86_64/64bit, 02/10/2014
 $stop at time 173610 ns Scope: tb_cmsdk_mcu.u_cmsdk_uart_capture.p_sim_end File: ../verilog/cmsdk_uart_capture.v Line: 209
 ucli%            V C S   S i m u l a t i o n   R e p o r t 
 Time: 173610000 ps
-CPU Time:      2.030 seconds;       Data structure size:   0.5Mb
-Sat Oct 27 10:57:00 2018
+CPU Time:      2.000 seconds;       Data structure size:   0.5Mb
+Wed Apr  3 23:55:00 2019

@@ -94,7 +94,7 @@ all     : all_$(SIMULATOR)
 
 # Compile RTL
 compile_vcs :
-	vcs $(VCS_OPTIONS) $(VCS_VC_OPTIONS) | tee compile_vcs.log
+	vcs $(VCS_OPTIONS) $(VCS_VC_OPTIONS) +DUMPWAVE=${DUMPWAVE} | tee compile_vcs.log
 
 
 # Run simulation in batch mode

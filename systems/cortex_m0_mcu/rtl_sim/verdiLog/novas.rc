@@ -288,10 +288,12 @@ Comment-FontOverride = FALSE
 [FSM_Dlg-Print]
 Orientation = Landscape
 [FileBrowser]
-nWaveOpenFsdbDirHistory = /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/tb_cmsdk_mcu.fsdb,/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim,
+LoadSimulationResults = /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/tb_cmsdk_mcu.fsdb,/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim,
+nWaveOpenFsdbDirHistory = /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim,/home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/tb_cmsdk_mcu.fsdb,/home/zhou/work/arm_soc/systems/cortex_m0_mcu/rtl_sim,
 [Form]
 version = Verdi3_I-2014.03
-wave/openWFile.fm = 100,72,823,682
+hb/loadFile.fm = 100,72,723,524
+wave/openWFile.fm = 100,44,823,682
 [General]
 autoSaveSession = FALSE
 TclAutoSource = 
@@ -326,9 +328,9 @@ designTreeFont = *-adobe-courier-medium-r-*-*-12-*-*-*-*-*-iso8859-*
 import_filter_vhdl = *.vhd; *.vhdl; *.f
 import_default_language = Verilog
 import_filter_verilog = *.v; *.vc; *.f
-simulation_file_type = *.fsdb;*.fsdb.gz;*.fsdb.bz2;*.ff;*.dump
 PrefetchViewableAnnot = TRUE
 # for vdCov
+simulation_file_type = *.*
 [Hier]
 filterTimeout = 1500
 [ImportLiberty]
@@ -413,15 +415,16 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
+QwWarnMsgDlg = 570,200,700,250
 QwUserAskDlg = 818,345,324,146
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
-2 = string (session file name)
 3 = string (session file name)
 4 = string (session file name)
 5 = string (session file name)
-1 = /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/verdiLog/novas_autosave.ses
+1 = /home/zhou/work/arm_soc/systems/cortex_m0_mcu/rtl_sim/verdiLog/novas_autosave.ses
+2 = /home/zhou/work/arm/AT510-MN-80001-r2p0-00rel0/systems/cortex_m0_mcu/rtl_sim/verdiLog/novas_autosave.ses
 [Simulation]
 scsPath = scsim
 scsOption = 
@@ -688,7 +691,7 @@ waveform_vertical_scroll_bar = TRUE
 scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
-viewPort = 0 30 1851 257 100 65
+viewPort = 0 30 1851 331 100 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1159,7 +1162,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 30 1851 257 100 65
+viewPort = 0 30 1851 331 100 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

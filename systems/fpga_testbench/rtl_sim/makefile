@@ -34,13 +34,13 @@ TEST_LIST   = designtest_m0 dualtimer_demo self_reset_demo sleep_demo watchdog_d
  apb_mux_tests default_slaves_tests timer_tests dhry timer_driver_tests hello
 
 # Default to DS-5 tool-chain
-TOOL_CHAIN = ds5
+TOOL_CHAIN = gcc
 
 # CM0 DesignStart FPGA and testbench
 TBENCH_VC  = ./tbench.vc
 
 # Simulator type (mti/vcs/nc)
-SIMULATOR  = mti
+SIMULATOR  = vcs
 
 # MTI option
 MTI_OPTIONS     = 

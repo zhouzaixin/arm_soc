@@ -46,7 +46,7 @@ USER_DEFINE    = -DCORTEX_M0 -DARDUINO_SUPPORT
 DEPS_LIST       = makefile
 
 # Tool chain : ds5 / gcc / keil
-TOOL_CHAIN      = ds5
+TOOL_CHAIN      = gcc
 
 ifeq ($(TOOL_CHAIN),ds5)
   CPU_TYPE        = --cpu Cortex-M0

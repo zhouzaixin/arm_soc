@@ -27,8 +27,8 @@
 #
 # Name of test directory (e.g. hello, dhry)
 # TESTNAME must be specified on the make command line
-TESTNAME    = hello
-DUMPWAVE    = 1
+TESTNAME    =
+
 # List of all tests (this is used when running 'make all/clean')
 TEST_LIST   = hello dhry sleep_demo interrupt_demo dualtimer_demo \
  self_reset_demo watchdog_demo rtx_demo gpio_tests timer_tests \
@@ -36,13 +36,13 @@ TEST_LIST   = hello dhry sleep_demo interrupt_demo dualtimer_demo \
  timer_driver_tests apb_mux_tests memory_tests
 
 # Default to DS-5 tool-chain
-TOOL_CHAIN = gcc
+TOOL_CHAIN = ds5
 
 # Core instantiated M0 Designstart
 TBENCH_VC  = ../verilog/tbench_M0_DS.vc
 
 # Simulator type (mti/vcs/nc)
-SIMULATOR  = vcs
+SIMULATOR  = mti
 
 # MTI option
 MTI_COMPILE_OPTIONS  = +acc=blnr -noincr
@@ -50,20 +50,9 @@ MTI_RUN_OPTIONS      = -voptargs="+acc=blnr"
 MTI_VC_OPTIONS = -f $(TBENCH_VC)
 
 # VCS option
-VCS_OPTIONS    = +vcs+lic+wait +v2k +lint=all,noTMR,noVCDE -debug_access+all -full64
-VCS_SIM_OPTION = +vcs+lic+wait +vcs+flush+log -assert nopostproc -debug_access+all -full64
+VCS_OPTIONS    = +vcs+lic+wait +v2k +lint=all,noTMR,noVCDE -debug
+VCS_SIM_OPTION = +vcs+lic+wait +vcs+flush+log -assert nopostproc
 VCS_VC_OPTIONS = -f $(TBENCH_VC)
-
-#wave type (verdi)
-WAV_TOOL = verdi
-WAV_PFIX        = fsdb
-
-# Verdi option
-WAV_OPTIONS    = +v2k -sverilog -full64
-WAV_VC_OPTIONS = -f ../verilog/filelist.f
-
-wave: 
-	${WAV_TOOL} ${WAV_OPTIONS} ${WAV_VC_OPTIONS} -ssf ./tb_cmsdk_mcu.${WAV_PFIX} &
 
 # NC verilog option
 NCSIM_OPTIONS  = -unbuffered -status -LICQUEUE -f ncsim.args -cdslib cds.lib -hdlvar hdl.var -NBASYNC
@@ -94,7 +83,7 @@ all     : all_$(SIMULATOR)
 
 # Compile RTL
 compile_vcs :
-	vcs $(VCS_OPTIONS) $(VCS_VC_OPTIONS) +DUMPWAVE=${DUMPWAVE} | tee compile_vcs.log
+	vcs $(VCS_OPTIONS) $(VCS_VC_OPTIONS) | tee compile_vcs.log
 
 
 # Run simulation in batch mode
@@ -103,7 +92,7 @@ run_vcs : code
 	  mkdir logs; \
 	fi
 	@echo quit > quit.do
-	./simv $(VCS_SIM_OPTION) +plusarg_save +DUMPWAVE=${DUMPWAVE}    < quit.do | tee logs/run_$(TESTNAME).log ;
+	./simv $(VCS_SIM_OPTION)                         < quit.do | tee logs/run_$(TESTNAME).log ;
 
 # Run simulation in interactive mode
 sim_vcs : code

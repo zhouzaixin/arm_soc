@@ -217,19 +217,7 @@ module tb_fpga;
   //-----------------------------------------
   localparam PERIOD_25MHz  = 40;
   localparam PERIOD_12MHz  = 84;
- 
-
-     
-  integer dumpwave; 
-   initial begin
-    $value$plusargs("DUMPWAVE=%d",dumpwave);
-    if(dumpwave != 0)begin
-      $fsdbDumpfile("tb_fpga.fsdb");
-      $fsdbDumpvars(0, tb_fpga, "+mda");
-     end
-   end
-
-
+  
   initial
   begin
     clk25MHz  = 1'b1;

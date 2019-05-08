@@ -27,24 +27,20 @@
 #
 # Name of test directory (e.g. hello, dhry)
 # TESTNAME must be specified on the make command line
-TESTNAME    = hello
-DUMPWAVE    = 1
+TESTNAME    =
+
 # List of all tests (this is used when running 'make all/clean')
 TEST_LIST   = designtest_m0 dualtimer_demo self_reset_demo sleep_demo watchdog_demo \
  apb_mux_tests default_slaves_tests timer_tests dhry timer_driver_tests hello
 
 # Default to DS-5 tool-chain
-TOOL_CHAIN = gcc
+TOOL_CHAIN = ds5
 
 # CM0 DesignStart FPGA and testbench
 TBENCH_VC  = ./tbench.vc
 
 # Simulator type (mti/vcs/nc)
-SIMULATOR  = vcs
-
-#wave type (verdi)
-WAVE_TOOL = verdi
-WAV_PFIX        = fsdb
+SIMULATOR  = mti
 
 # MTI option
 MTI_OPTIONS     = 
@@ -53,17 +49,9 @@ MTI_SIM_OPTIONS = -voptargs="+acc=+tb_fpga."
 MTI_VC_OPTIONS  = -f $(TBENCH_VC)
 
 # VCS option
-VCS_OPTIONS    = +vcs+lic+wait -sverilog +v2k +lint=all,noTMR,noVCDE,noSVA-NSVU,noUI,noSVA-CE,noSVA-DIU,noPORTFRC -debug_access+all -full64
-VCS_SIM_OPTION = +vcs+lic+wait +vcs+flush+log -assert nopostproc -full64
+VCS_OPTIONS    = +vcs+lic+wait +v2k +lint=all,noTMR,noVCDE -debug
+VCS_SIM_OPTION = +vcs+lic+wait +vcs+flush+log -assert nopostproc
 VCS_VC_OPTIONS = -f $(TBENCH_VC)
-
-# Verdi option
-WAV_OPTIONS    = +v2k -sverilog -full64
-WAV_VC_OPTIONS = -f $(TBENCH_VC)
-
-wave: 
-	${WAV_TOOL} ${WAV_OPTIONS} ${WAV_VC_OPTIONS} -ssf ./tb_fpga.${WAV_PFIX} &
-
 
 # NC verilog option
 NCSIM_OPTIONS  = -unbuffered -status -LICQUEUE -f ncsim.args -cdslib cds.lib -hdlvar hdl.var -NBASYNC
@@ -87,7 +75,6 @@ sim     : sim_$(SIMULATOR)
 
 all     : all_$(SIMULATOR)
 
-
 # ------- VCS -----------
 
 # Compile RTL
@@ -102,7 +89,7 @@ run_vcs : code
 	@cp setup_vcs.do vcs_cmd.do    
 	@echo run >> vcs_cmd.do
 	@echo quit >> vcs_cmd.do
-	./simv $(VCS_SIM_OPTION) +DUMPWAVE=${DUMPWAVE} +plusarg_save -ucli -i vcs_cmd.do | tee logs/run_$(TESTNAME).log ;
+	./simv $(VCS_SIM_OPTION) -ucli -i vcs_cmd.do | tee logs/run_$(TESTNAME).log ;
 
 # Run simulation in interactive mode
 sim_vcs : code

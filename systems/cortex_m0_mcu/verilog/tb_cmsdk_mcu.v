@@ -146,13 +146,5 @@ module tb_cmsdk_mcu;
   // Format for time reporting
   initial    $timeformat(-9, 0, " ns", 0);
 
-  integer dumpwave; 
-   initial begin
-    $value$plusargs("DUMPWAVE=%d",dumpwave);
-    if(dumpwave != 0)begin
-      $fsdbDumpfile("tb_cmsdk_mcu.fsdb");
-      $fsdbDumpvars(0, tb_cmsdk_mcu, "+mda");
-     end
-   end
-
+  
 endmodule

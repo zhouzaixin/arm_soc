@@ -35,18 +35,47 @@
 #include <stdio.h>
 #include "uart_stdout.h"
 
+#define	REG0		    	0x40000000
+#define	REG1		    	0x40000004
+#define	REG2		    	0x40000008
+#define	REG3		    	0x4000000c
+#define	REG4		    	0x40000010
+
+#define u32READ(REG)			(*((volatile unsigned long *)(REG)))
+#define u32WRITE(REG,DATA)		((*((volatile unsigned long *)(REG)))=(unsigned long)DATA)
+	
 int main (void)
 {
-  // UART init
-  UartStdOutInit();
 
-  printf("Hello world\n");
+	  unsigned int a = 0;
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG0,0x11133333);
+		u32WRITE(REG1,0xffffffff);
+		u32WRITE(REG2,0x89abcdef);
+		u32WRITE(REG3,0x12345678);
 
-  printf("** TEST PASSED **\n");
-
-  // End simulation
-  UartEndSimulation();
+		
+		
+		    a = u32READ(REG0);
+		a = u32READ(REG0);
+		a = u32READ(REG0);
+		a = u32READ(REG0);
+		a = u32READ(REG0);
+				a = u32READ(REG1);
+				a = u32READ(REG2);
+				a = u32READ(REG3);
+		    a = u32READ(REG4);
 
   return 0;
 }
-

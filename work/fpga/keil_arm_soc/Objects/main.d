@@ -1,0 +1,10 @@
+.\objects\main.o: main.c
+.\objects\main.o: D:\bin\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: XA1707.h
+.\objects\main.o: uart.h
+.\objects\main.o: typesmacro.h
+.\objects\main.o: XA1707.h
+.\objects\main.o: sysinit.h
+.\objects\main.o: XA1707.h
+.\objects\main.o: command.h
+.\objects\main.o: XA1707.h

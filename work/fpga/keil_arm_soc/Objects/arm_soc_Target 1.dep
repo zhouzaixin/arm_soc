@@ -1,0 +1,29 @@
+Dependencies for Project 'arm_soc', Target 'Target 1': (DO NOT MODIFY !)
+F (.\cm0dsasm.s)(0x57557A6C)(--cpu Cortex-M0 --li -g --apcs=interwork -I.\RTE\_Target_1-ID:\bin\Keil_v5\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM0\Include-ID:\bin\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 527" --pd "ARMCM0 SETA 1"--list .\listings\cm0dsasm.lst --xref -o .\objects\cm0dsasm.o --depend .\objects\cm0dsasm.d)
+F (.\main.c)(0x5CFFD6DD)(--c99 --gnu -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork -I.\RTE\_Target_1-ID:\bin\Keil_v5\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM0\Include-ID:\bin\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (D:\bin\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (XA1707.h)(0x5B45BAAE)
+I (uart.h)(0x5AA88873)
+I (typesmacro.h)(0x599B8CEE)
+I (sysinit.h)(0x599E5DC6)
+I (command.h)(0x5AB8B2C8)
+F (.\command.c)(0x5AB8CCA6)(--c99 --gnu -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork -I.\RTE\_Target_1-ID:\bin\Keil_v5\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM0\Include-ID:\bin\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM0-o .\objects\command.o --omf_browse .\objects\command.crf --depend .\objects\command.d)
+I (D:\bin\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (command.h)(0x5AB8B2C8)
+I (XA1707.h)(0x5B45BAAE)
+I (uart.h)(0x5AA88873)
+I (typesmacro.h)(0x599B8CEE)
+F (.\command.h)(0x5AB8B2C8)()
+F (.\sysinit.c)(0x5CFFD641)(--c99 --gnu -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork -I.\RTE\_Target_1-ID:\bin\Keil_v5\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM0\Include-ID:\bin\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM0-o .\objects\sysinit.o --omf_browse .\objects\sysinit.crf --depend .\objects\sysinit.d)
+I (sysinit.h)(0x599E5DC6)
+I (XA1707.h)(0x5B45BAAE)
+F (.\sysinit.h)(0x599E5DC6)()
+F (.\system.h)(0x57554322)()
+F (.\typesmacro.h)(0x599B8CEE)()
+F (.\uart.c)(0x59AD121C)(--c99 --gnu -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork -I.\RTE\_Target_1-ID:\bin\Keil_v5\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM0\Include-ID:\bin\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DARMCM0-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+I (D:\bin\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (uart.h)(0x5AA88873)
+I (typesmacro.h)(0x599B8CEE)
+I (XA1707.h)(0x5B45BAAE)
+F (.\uart.h)(0x5AA88873)()
+F (.\XA1707.h)(0x5B45BAAE)()

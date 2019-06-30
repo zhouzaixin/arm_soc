@@ -1,0 +1,10 @@
+--cpu Cortex-M0
+".\objects\cm0dsasm.o"
+".\objects\main.o"
+".\objects\command.o"
+".\objects\sysinit.o"
+".\objects\uart.o"
+--strict --scatter ".\Objects\arm_soc.sct"
+--entry Reset_Handler --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\arm_soc.map" -o .\Objects\arm_soc.axf
